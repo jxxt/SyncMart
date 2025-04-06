@@ -12,7 +12,7 @@ const Signup = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const countries = ['india', 'united kingdom', 'north korea', 'japan', 'australia'];
+  const countries = ['india', 'unitedKingdom', 'northKorea', 'japan', 'australia'];
 
   const handleSignup = async (e) => {
     e.preventDefault();

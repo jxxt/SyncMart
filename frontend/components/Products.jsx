@@ -1,9 +1,10 @@
-const ProductCard = ({ product }) => {
+// Updated ProductCard component within Products.jsx
+const ProductCard = ({ product, currencySymbol }) => {
     const { 
         image, 
         name, 
-        price, 
-        oldPrice, 
+        displayPrice, // Use displayPrice instead of price
+        oldPrice,
         rating, 
         tag, 
         tagColor = 'white', 
@@ -75,15 +76,15 @@ const ProductCard = ({ product }) => {
                     {oldPrice ? (
                         <>
                             <p className="text-xs font-bold text-gray-900 sm:text-sm md:text-base">
-                                ${price}
+                                {currencySymbol}{displayPrice}
                             </p>
                             <del className="mt-0.5 text-xs sm:text-sm font-bold text-gray-500">
-                                ${oldPrice}
+                                {currencySymbol}{oldPrice}
                             </del>
                         </>
                     ) : (
                         <p className="text-xs font-bold text-gray-900 sm:text-sm md:text-base">
-                            ${price}
+                            {currencySymbol}{displayPrice}
                         </p>
                     )}
                 </div>
@@ -96,7 +97,8 @@ const ProductCard = ({ product }) => {
     );
 };
 
-const Products = ({ products }) => {
+// Updated Products component
+const Products = ({ products, currencySymbol }) => {
     return (
         <section className="py-12 bg-white sm:py-16 lg:py-20">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -112,7 +114,11 @@ const Products = ({ products }) => {
 
                 <div className="grid grid-cols-2 gap-6 mt-10 lg:mt-16 lg:gap-4 lg:grid-cols-4">
                     {products.map((product, index) => (
-                        <ProductCard key={index} product={product} />
+                        <ProductCard 
+                            key={index} 
+                            product={product} 
+                            currencySymbol={currencySymbol} 
+                        />
                     ))}
                 </div>
             </div>
