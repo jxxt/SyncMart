@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import Home from '../pages/Home';
-import Login from '../pages/Login';
-import Signup from '../pages/Signup';
+import HomePage from '../pages/HomePage';
+import LoginPage from '../pages/LoginPage';
+import SignupPage from '../pages/SignupPage';
 
 const InitialRedirect = () => {
   const navigate = useNavigate();
@@ -37,24 +37,24 @@ function App() {
       <Routes>
         <Route path="/" element={
           <ProtectedRoute>
-            <Home />
+            <HomePage />
           </ProtectedRoute>
         } />
         <Route path="/:country" element={
           <ProtectedRoute>
             <CountryRouteProtection>
-              <Home />
+              <HomePage />
             </CountryRouteProtection>
           </ProtectedRoute>
         } />
         <Route path="/login" element={
           <AuthRoute>
-            <Login />
+            <LoginPage />
           </AuthRoute>
         } />
         <Route path="/signup" element={
           <AuthRoute>
-            <Signup />
+            <SignupPage />
           </AuthRoute>
         } />
         <Route path="*" element={<div className="p-4 text-center">404 Not Found</div>} />

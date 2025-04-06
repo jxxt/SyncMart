@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Products from "../components/Products";
 
@@ -37,6 +38,7 @@ function Home() {
         <>
             <Header />
             <Products products={productsData} />
+            <Footer />
         </>
     );
 }
