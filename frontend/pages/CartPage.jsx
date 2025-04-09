@@ -1,12 +1,12 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Login from "../components/Login";
+import Cart from "../components/Cart";
 
 function Home() {
     return (
         <>
             <Header showCartButton={false} />
-            <Login />
+            <Cart />
             <Footer showLogoutButton={false}/>
         </>
     );

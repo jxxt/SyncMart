@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ showLogoutButton = true }) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -31,14 +31,14 @@ const Footer = () => {
                         <p className="mt-2 text-gray-400 text-sm">
                             Your seamless shopping experience
                         </p>
-                        <button
+                        {showLogoutButton && (<button
                             onClick={handleLogout}
                             className="mt-5 px-3 py-1.5 text-xs text-white bg-gray-600 hover:text-white transition-colors duration-300 
              rounded-md border border-gray-400 hover:border-white
              hover:bg-gray-800/30 focus:outline-none focus:ring-1 focus:ring-gray-300 cursor-pointer"
                         >
                             Logout
-                        </button>
+                        </button>)}
                     </div>
 
                     {/* Links */}
