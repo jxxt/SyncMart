@@ -55,15 +55,23 @@ function HomePage() {
         });
 
         // SECOND: After delay, update the quantity and stock status
-        setTimeout(() => {
-            const productRef = ref(db, `global/products/${product.id}`);
-            const newQuantity = product.quantity - 1;
-            const updatedProduct = {
-                quantity: newQuantity,
-                inStock: newQuantity > 0,
-            };
-            update(productRef, updatedProduct);
-        }, 1000); // 1 second delay
+        // setTimeout(() => {
+        //     const productRef = ref(db, `global/products/${product.id}`);
+        //     const newQuantity = product.quantity - 1;
+        //     const updatedProduct = {
+        //         quantity: newQuantity,
+        //         inStock: newQuantity > 0,
+        //     };
+        //     update(productRef, updatedProduct);
+        // }, 1000); // 1 second delay
+
+        const productRef = ref(db, `global/products/${product.id}`);
+        const newQuantity = product.quantity - 1;
+        const updatedProduct = {
+            quantity: newQuantity,
+            inStock: newQuantity > 0,
+        };
+        update(productRef, updatedProduct);
     };
 
     // Load cart from localStorage on initial render
